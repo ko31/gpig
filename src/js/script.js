@@ -1,7 +1,10 @@
 var canvas = document.getElementById('canvas');
 var saveButton = document.getElementById('save');
 
-function prepareDownload() {
+/*
+ * Generate image
+ */
+function generateImage() {
 	var ctx = canvas.getContext('2d');
 	var img = new Image();
 
@@ -12,14 +15,14 @@ function prepareDownload() {
 		canvas.width = $('#width').val();
 		canvas.height = $('#height').val();
 
-        // canvas背景にimg繰り返しパターンをセット
+        // Set image to canvas background
         ctx.beginPath();
         var ptn = ctx.createPattern(img, 'repeat');
         ctx.fillStyle = ptn;
         ctx.rect(0, 0, $('#width').val(), $('#height').val());
         ctx.fill();
 
-        // テキストをセット
+        // Draw text to canvas
         var title = $('#title').val();
         var lines = title.split("\n");
         var start_y = ($('#height').val() / 2) - ((lines.length - 1) * $('#font-size').val() / 2);
@@ -34,6 +37,7 @@ function prepareDownload() {
             $('#font-weight:checked').val()
         );
 
+        // Set image to download button
 		saveButton.download = string + '.png';
 		try {
 			saveButton.href = canvas.toDataURL('image/png');
@@ -45,20 +49,8 @@ function prepareDownload() {
 	img.src = pattern.toDataUri();
 }
 
-$(function () {
-    $('#title, #font-family, #font-weight, #font-size, #width, #height, #string').on('input', function(e) {
-        prepareDownload();
-    });
-    $('#font-color').colorpicker().on('colorpickerChange', function(e) {
-    	prepareDownload();
-    });
-    $('#string').trigger('input');
-	$('#title').focus();
-});
-
-
 /*
- * draw a multiline string rotated in a canvas
+ * Draw multiline text to canvas
  */
 function drawString(ctx, text, posX, posY, textColor, font, fontSize, fontWeight) {
     var lines = text.split("\n");
@@ -86,3 +78,17 @@ function drawString(ctx, text, posX, posY, textColor, font, fontSize, fontWeight
     }
     ctx.restore();
 }
+
+/*
+ * Initialize
+ */
+$(function () {
+    $('#title, #font-family, #font-weight, #font-size, #width, #height, #string').on('input', function(e) {
+        generateImage();
+    });
+    $('#font-color').colorpicker().on('colorpickerChange', function(e) {
+        generateImage();
+    });
+    $('#string').trigger('input');
+	$('#title').focus();
+});
