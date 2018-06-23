@@ -80,9 +80,29 @@ function drawString(ctx, text, posX, posY, textColor, font, fontSize, fontWeight
 }
 
 /*
+ * Get random words
+ */
+function randomWords() {
+    var words = [
+        'Better late than never.',
+        'Easy come, easy go.',
+        'Every dog has its day.',
+        'Honesty is the best policy.',
+        'No man is an island.',
+        'Practice makes perfect.',
+        'Silence is gold.',
+        'Stay hungry. Stay foolish.',
+        'The sky is the limit.',
+        'Time is money.'
+    ];
+    return words[Math.floor(Math.random() * words.length)];
+}
+
+/*
  * Initialize
  */
 $(function () {
+    $('#title').val(randomWords());
     $('#title, #font-family, #font-weight, #font-size, #width, #height, #string').on('input', function(e) {
         generateImage();
     });
@@ -91,4 +111,5 @@ $(function () {
     });
     $('#string').trigger('input');
 	$('#title').focus();
+	$('#title').select();
 });
