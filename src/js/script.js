@@ -106,7 +106,10 @@ function randomWords() {
  */
 $(function () {
     $('#title').val(randomWords());
-    $('#title, #font-family, #font-weight, #font-size, #width, #height, #string').on('input', function(e) {
+    $('#title, #font-family, #font-size, #width, #height, #string').on('input', function(e) {
+        generateImage();
+    });
+    $('#font-weight').on('change', function(e) {
         generateImage();
     });
     $('#font-color').colorpicker().on('colorpickerChange', function(e) {
