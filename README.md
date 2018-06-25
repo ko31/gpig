@@ -4,7 +4,7 @@
 
 GPIG is geometric pattern image generator.
 
-[View a page](https://www.google.co.jp://ko31.github.io/gpig/)
+[View a page](https://ko31.github.io/gpig/)
 
 ## Third-party resources
 
