@@ -9,18 +9,21 @@ function generateImage() {
 	var img = new Image();
 
 	var string = $('#string').val();
-	var pattern = GeoPattern.generate(string);
+	var geoPattern = GeoPattern.generate(string);
 
-	img.onload = function() {
-		canvas.width = $('#width').val();
-		canvas.height = $('#height').val();
+    img.onload = function() {
+        // Canvas image source for pattern:    
+        var svgCanvas = document.createElement("canvas");
+        svgCanvas.width = this.width;
+        svgCanvas.height = this.height;
 
-        // Set image to canvas background
-        ctx.beginPath();
-        var ptn = ctx.createPattern(img, 'repeat');
-        ctx.fillStyle = ptn;
-        ctx.rect(0, 0, $('#width').val(), $('#height').val());
-        ctx.fill();
+        var svgCtx = svgCanvas.getContext("2d");
+        svgCtx.drawImage(this, 0, 0, this.width, this.height);
+
+        // Draw pattern to canvas
+        var pattern = ctx.createPattern(svgCanvas, 'repeat');
+        ctx.fillStyle = pattern;
+        ctx.fillRect(0, 0, $('#width').val(), $('#height').val());
 
         // Draw text to canvas
         var title = $('#title').val();
@@ -38,15 +41,15 @@ function generateImage() {
         );
 
         // Set image to download button
-		saveButton.download = string + '.png';
-		try {
-			saveButton.href = canvas.toDataURL('image/png');
-		} catch (err) {
-			saveButton.style.display = 'none';
-		}
-	};
+        saveButton.download = string + '.png';
+        try {
+            saveButton.href = canvas.toDataURL('image/png');
+        } catch (err) {
+            saveButton.style.display = 'none';
+        }
+    };  
 
-	img.src = pattern.toDataUri();
+	img.src = geoPattern.toDataUri();
 }
 
 /*
