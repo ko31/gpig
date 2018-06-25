@@ -12,6 +12,9 @@ function generateImage() {
 	var geoPattern = GeoPattern.generate(string);
 
     img.onload = function() {
+        canvas.width = $('#width').val();
+        canvas.height = $('#height').val();
+
         // Canvas image source for pattern:    
         var svgCanvas = document.createElement("canvas");
         svgCanvas.width = this.width;
