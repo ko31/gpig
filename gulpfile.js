@@ -5,6 +5,7 @@ var minifyHTML = require('gulp-minify-html');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var csso = require('gulp-csso');
+var browserSync = require('browser-sync').create();
 
 gulp.task('js', function(){
     return gulp.src(["src/js/*.js"])
@@ -25,4 +26,17 @@ gulp.task('html', function() {
     .pipe(gulp.dest('docs'));
 });
 
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./src"
+        }
+    });
+});
+
+// Build
 gulp.task('default', ['js', 'css', 'html']);
+
+// Server
+gulp.task('serve', ['browser-sync']);
+//gulp.task('serve', ['browser-sync', 'reload', 'watch']);

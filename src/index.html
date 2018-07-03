@@ -22,8 +22,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap-colorpicker.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Lobster|Noto+Sans|Oswald|Open+Sans|Quicksand|Righteous|Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet" />
@@ -69,29 +68,40 @@
                 <form>
 
                     <div class="form-group row">
-                        <label for="title" class="col-2 col-form-label col-form-label-sm">Text</label>
-                        <div class="col-10">
-                            <textarea class="form-control form-control-sm" id="title" name="title" rows="2" placeholder="Please input text"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="font-family" class="col-2 col-form-label col-form-label-sm">Font</label>
-                        <div class="col-10">
+                        <div class="col-12">
 
                             <div class="form-row">
                                 <div class="col">
-                                    <small>Family</small>
+                                    <label for="title" class="col-form-label-sm">表示文字</label>
+                                    <textarea class="form-control form-control-sm" id="title" name="title" rows="2" placeholder="文字を入力してください"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="font-family" class="col-form-label-sm">フォント</label>
                                     <select id="font-family" name="font-family" class="form-control form-control-sm">
-                                        <option id="font-family-noto" value="Noto Sans">Noto Sans</option>
-                                        <option id="font-family-roboto" value="Roboto">Roboto</option>
-                                        <option id="font-family-mplus1p" value="Mplus 1p">Mplus 1p</option>
-                                        <option id="font-family-roundedmplus1c" value="Rounded Mplus 1c">Rounded M+ 1c</option>
-                                        <option id="font-family-hannari" value="Hannari">はんなり明朝</option>
-                                        <option id="font-family-kokoro" value="Kokoro">こころ明朝</option>
-                                        <option id="font-family-sawarabimincho" value="Sawarabi Mincho">さわらび明朝</option>
-                                        <option id="font-family-sawarabigothic" value="Sawarabi Gothic">さわらびゴシック</option>
-                                        <option id="font-family-notosansjapanese" value="Noto Sans Japanese">Noto Sans Japanese</option>
+                                        <optgroup label="英語">
+                                            <option id="font-family-lato" value="Lato">Lato</option>
+                                            <option id="font-family-lobster" value="'Lobster', cursive">Lobster</option>
+                                            <option id="font-family-noto" value='"Noto Sans"'>Noto Sans</option>
+                                            <option id="font-family-opensans" value="'Open Sans'">Open Sans</option>
+                                            <option id="font-family-oswald" value="Oswald">Oswald</option>
+                                            <option id="font-family-quicksand" value="Quicksand">Quicksand</option>
+                                            <option id="font-family-righteous" value="'Righteous', cursive">Righteous</option>
+                                            <option id="font-family-roboto" value="Roboto">Roboto</option>
+                                        </optgroup>
+                                        <optgroup label="日本語">
+                                            <option id="font-family-mplus1p" value='"Mplus 1p"'>Mplus 1p</option>
+                                            <option id="font-family-roundedmplus1c" value='"Rounded Mplus 1c"'>Rounded M+ 1c</option>
+                                            <option id="font-family-notosansjapanese" value='"Noto Sans Japanese"'>Noto Sans Japanese</option>
+                                            <option id="font-family-kokoro" value="Kokoro">こころ明朝</option>
+                                            <option id="font-family-sawarabigothic" value='"Sawarabi Gothic"'>さわらびゴシック</option>
+                                            <option id="font-family-sawarabimincho" value='"Sawarabi Mincho"'>さわらび明朝</option>
+                                            <option id="font-family-hannari" value="Hannari">はんなり明朝</option>
+                                            <option id="font-family-yugothic" value='"Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体"' selected>游ゴシック</option>
+                                            <option id="font-family-yumincho" value='"游明朝体", "Yu Mincho", YuMincho'>游明朝</option>
+                                        </optgroup>
                                     </select>
                                 </div>
                             </div>
@@ -100,52 +110,45 @@
                                 <div class="col">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" id="font-weight" value="1">
-                                        <label class="form-check-label" for="font-weight">Bold</label>
+                                        <label class="form-check-label" for="font-weight">太字</label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="col">
-                                    <small>Size(px)</small>
+                                    <label for="font-size" class="col-form-label-sm">文字サイズ(px)</label>
                                     <input type="number" id="font-size" name="font-size" class="form-control form-control-sm" placeholder="48" value="48">
                                 </div>
                                 <div class="col">
-                                    <small>Color</small>
+                                    <label for="font-color" class="col-form-label-sm">文字色</label>
                                     <input id="font-color" name="font-color" type="text" class="form-control form-control-sm colorpicker-component" placeholder="#ffffff" data-color="#ffffff">
                                 </div>
                             </div>
 
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="width" class="col-2 col-form-label col-form-label-sm">Image</label>
-                        <div class="col-10">
-
                             <div class="form-row">
                                 <div class="col">
-                                    <small>width(px)</small>
+                                    <label for="width" class="col-form-label-sm">幅(px)</label>
                                     <input type="number" id="width" name="width" class="form-control form-control-sm" placeholder="640" value="640">
                                 </div>
                                 <div class="col">
-                                    <small>height(px)</small>
+                                    <label for="height" class="col-form-label-sm">高さ(px)</label>
                                     <input type="number" id="height" name="height" class="form-control form-control-sm" placeholder="360" value="360">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="string" class="col-form-label-sm">パターン生成</label>
+                                    <input type="text" id="string" name="string" class="form-control form-control-sm" placeholder="何か文字を入力してください" value="xxxxx">
+                                    <small id="stringlHelp" class="form-text text-muted">入力された文字から背景パターンを生成します</small>
                                 </div>
                             </div>
 
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="string" class="col-2 col-form-label col-form-label-sm">String</label>
-                        <div class="col-10">
-                            <input type="text" id="string" name="string" class="form-control form-control-sm" placeholder="Please input something..." value="xxxxx">
-                            <small id="stringlHelp" class="form-text text-muted">Please input something, then the background pattern will change.</small>
-                        </div>
-                    </div>
-
-	                <a id="save" class="btn btn-dark btn-lg btn-block" href="#">Download</a>
+	                <a id="save" class="btn btn-dark btn-lg btn-block" href="#">画像を保存する</a>
 
                 </form>
             </div>
@@ -160,6 +163,7 @@
     <div class="container border-top footer">
         <div class="row">
             <div class="col-12 col-md">
+                <p class="license">当サイトで生成された画像は <a href="https://github.com/ko31/gpig/blob/master/LICENSE" target="_blank">MIT License</a> のもと個人・法人、商用・非商用を問わず無料でご利用頂けます。<br>ご意見やお問い合わせ等ございましたら<a href="https://twitter.com/ko31" target="_blank">作者</a>宛にご連絡ください。</p>
                 <small>created by <a href="https://twitter.com/ko31" target="_blank">@ko31</a></small>
             </div>
         </div>

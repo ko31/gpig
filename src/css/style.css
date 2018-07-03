@@ -2,6 +2,10 @@ header {
     margin-bottom: 80px;
 }
 
+label {
+    margin-bottom: 0;
+}
+
 .footer {
     margin-top: 40px;
     padding-top: 20px;
@@ -9,8 +13,8 @@ header {
     text-align: center;
 }
 
-.form-group label {
-    font-weight: bold;
+.license {
+    font-size: 80%;
 }
 
 .form-check label {

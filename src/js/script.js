@@ -61,7 +61,7 @@ function generateImage() {
 function drawString(ctx, text, posX, posY, textColor, font, fontSize, fontWeight) {
     var lines = text.split("\n");
     if (!font) {
-        font = "'serif'";
+        font = "'sans-serif, serif'";
     }
     if (!fontSize) {
         fontSize = 16;
@@ -71,9 +71,9 @@ function drawString(ctx, text, posX, posY, textColor, font, fontSize, fontWeight
     }
     ctx.save();
     if (fontWeight) {
-        ctx.font = "bold " + fontSize + "px '" + font + "'";
+        ctx.font = "bold " + fontSize + "px " + font;
     } else {
-        ctx.font = fontSize + "px '" + font + "'";
+        ctx.font = fontSize + "px " + font;
     }
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -90,17 +90,8 @@ function drawString(ctx, text, posX, posY, textColor, font, fontSize, fontWeight
  */
 function randomWords() {
     var words = [
-        'Better late than never.',
-        'Easy come, easy go.',
-        'Every dog has its day.',
-        'Honesty is the best policy.',
-        'No man is an island.',
-        'Practice makes perfect.',
-        'Silence is gold.',
-        'Stay hungry. Stay foolish.',
-        'The sky is the limit.',
-        'Time is money.'
-    ];
+        '文字を入力してください'
+   ];
     return words[Math.floor(Math.random() * words.length)];
 }
 
