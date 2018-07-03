@@ -11,3 +11,7 @@ GPIG is geometric pattern image generator.
 * btmills/geopattern: https://github.com/btmills/geopattern
 * twbs/bootstrap: https://github.com/twbs/bootstrap
 * farbelous/bootstrap-colorpicker: https://github.com/farbelous/bootstrap-colorpicker
+
+## License
+
+Licensed under the terms of the MIT License, the full text of which can be read in [LICENSE](LICENSE).
